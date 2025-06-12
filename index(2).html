@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Устав Piranhas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e8f5e9;
+      color: #1b5e20;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #43a047;
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #a5d6a7;
+      border-radius: 4px;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #66bb6a;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #4caf50;
+    }
+
+    #answer {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      background-color: #c8e6c9;
+      padding: 1rem;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>Устав Piranhas — Вопросы и Ответы</header>
+  <main>
+    <input type="text" id="question" placeholder="Введите ваше возражение..." />
+    <button onclick="getAnswer()">Спросить</button>
+    <div id="answer"></div>
+  </main>
+  <script>
+    function getAnswer() {
+      const q = document.getElementById('question').value.toLowerCase();
+      const answerBox = document.getElementById('answer');
+
+      function match(phrases) {
+        return phrases.some(p => q.includes(p));
+      }
+
+      if (match(['дорого', 'цена', 'нет денег', 'слишком дорого'])) {
+        answerBox.innerText = 'Цена — вопрос относительный. Но результат от работы с нами многократно перекрывает вложения. Давайте покажу на цифрах.';
+      } else if (match(['подумать', 'подумаю', 'надо обдумать'])) {
+        answerBox.innerText = 'Разумеется, подумать — это нормально. Давайте я дам вам ключевые факты, а потом уже примете решение спокойно.';
+      } else if (match(['не интересно', 'неинтересно', 'не зацепило'])) {
+        answerBox.innerText = 'Интерес — это следствие понимания. Давайте покажу, как это может дать вам результат — и уже тогда решите.';
+      } else if (match(['не верю', 'сомневаюсь', 'недоверие'])) {
+        answerBox.innerText = 'Сомнения — норма. Но у нас есть подтверждения: лицензии, отзывы, открытая платформа. Хотите — покажу прямо сейчас.';
+      } else if (match(['уже есть', 'не нужно', 'есть другой'])) {
+        answerBox.innerText = 'Если уже есть — отлично. Значит, вы цените эту тему. Давайте сравним с тем, что даём мы — может быть, выгоднее.';
+      } else if (match(['конкурент', 'дешевле', 'у других'])) {
+        answerBox.innerText = 'Цены могут быть ниже, но важно — что вы получаете. У нас условия, гарантия, результат. Хотите сравним?';
+      } else if (match(['время', 'занят', 'позже', 'сейчас неудобно'])) {
+        answerBox.innerText = 'Буквально минута — и вы поймёте, зачем я звоню. А дальше — решите сами.';
+      } else if (match(['посоветуюсь', 'не я решаю', 'нужно спросить', 'мне нужно посоветоваться'])) {
+        answerBox.innerText = 'Понимаю. Но прежде чем советоваться — стоит понять суть. Давайте я кратко покажу — и уже будете решать предметно.';
+      } else if (match(['гарантии', 'есть ли гарантия', 'вы даёте гарантию'])) {
+        answerBox.innerText = 'Гарантии — важный вопрос. У нас — лицензии, регулятор, официальные каналы. Хотите — вышлю подтверждения.';
+      } else if (match(['риски', 'опасно', 'много рисков'])) {
+        answerBox.innerText = 'Риски есть всегда. Мы их контролируем через лимиты, стратегию, распределение. Безопасность — в основе.';
+      } else if (match(['мошенники', 'обман', 'развод'])) {
+        answerBox.innerText = 'Понимаю, таких историй много. Именно поэтому мы работаем открыто, с официальными платёжными системами и поддержкой.';
+      } else if (match(['сложно', 'не разберусь', 'не пойму'])) {
+        answerBox.innerText = 'Всё покажу по шагам. Платформа простая, и я буду на связи на всех этапах.';
+      } else {
+        answerBox.innerText = 'Извините, я не нашёл ответ. Попробуйте по-другому или уточните: “подумать”, “дорого”, “сомнения”, “время” и т.д.';
+      }
+    }
+  </script>
+</body>
+</html>
